@@ -1,0 +1,75 @@
+/* Admin Panel Styles */
+.admin-container {
+  padding: 20px;
+  background-color: #f4f4f4;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+.notice-list-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notice-list {
+  list-style: none;
+  padding: 0;
+}
+
+.notice-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.notice-title {
+  font-size: 18px;
+  font-weight: bold;
+  max-width: 70%;
+}
+
+.notice-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-btn,
+.delete-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  background-color: #5bc0de;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #d9534f;
+  color: white;
+}

@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Login from "./components/Login";
+import AdminPanel from "./components/AdminPanel";
+import NoticeBoard from "./components/NoticeBoard";
 
-function App() {
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+
+  useEffect(() => {
+    const handleAuthChange = () => setIsAuthenticated(!!localStorage.getItem("token"));
+    window.addEventListener("storage", handleAuthChange); // Sync authentication across tabs
+    return () => window.removeEventListener("storage", handleAuthChange);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<NoticeBoard />} /> {/* Default Page */}
+        <Route 
+          path="/login" 
+          element={isAuthenticated ? <Navigate to="/panel" /> : <Login setAuth={setIsAuthenticated} />} 
+        />
+        <Route 
+          path="/panel" 
+          element={isAuthenticated ? <AdminPanel setAuth={setIsAuthenticated} /> : <Navigate to="/login" />} 
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
