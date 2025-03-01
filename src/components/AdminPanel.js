@@ -21,7 +21,7 @@ const AdminPanel = ({ setAuth }) => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get("http://34.136.221.248:8000/api/notices/");
+        const response = await axios.get("https://api.shahal.online/api/notices/");
         setNotices(response.data);
         setLoading(false);
       } catch (error) {
