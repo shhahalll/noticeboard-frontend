@@ -50,7 +50,7 @@ const AdminPanel = ({ setAuth }) => {
   // Toggle visibility of a notice
   const toggleVisibility = async (noticeId) => {
     try {
-      await axios.post(`http://34.136.221.248:8000/api/notices/${noticeId}/toggle-visibility/`);
+      await axios.post(`https://api.shahal.online/api/notices/${noticeId}/toggle-visibility/`);
       // Update the notices list after toggling visibility
       setNotices((prevNotices) =>
         prevNotices.map((notice) =>
@@ -65,7 +65,7 @@ const AdminPanel = ({ setAuth }) => {
   // Delete a notice
   const deleteNotice = async (noticeId) => {
     try {
-      await axios.delete(`http://34.136.221.248:8000/api/notices/${noticeId}/`);
+      await axios.delete(`https://api.shahal.online/api/notices/${noticeId}/`);
       // Remove the deleted notice from the list
       setNotices((prevNotices) => prevNotices.filter((notice) => notice.id !== noticeId));
     } catch (error) {
