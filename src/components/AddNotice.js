@@ -43,7 +43,7 @@ const AddNotice = ({ setShowAddNotice }) => {
     }
 
     try {
-      const response = await axios.post("http://34.136.221.248:8000/api/notices/", formData, {
+      const response = await axios.post("https://api.shahal.online/api/notices/", formData, {
         headers: {
           "Content-Type": "multipart/form-data", // Ensure the proper content type for file upload
         },
