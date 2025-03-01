@@ -9,7 +9,7 @@ const NoticeBoard = () => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get("http://apis.shahal.online/api/notices/");
+        const response = await axios.get("https://api.shahal.online/api/notices/");
         const visibleNotices = response.data.filter((notice) => notice.visible);
 
         // Only update if new data is different
