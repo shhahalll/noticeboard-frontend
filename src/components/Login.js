@@ -17,7 +17,7 @@ const Login = ({ setAuth }) => {
     setError("");
 
     try {
-      const response = await axios.post("http://34.136.221.248:8000/api/login/", credentials);
+      const response = await axios.post("https://api.shahal.online/api/login/", credentials);
       localStorage.setItem("token", response.data.token);
       setAuth(true); // Update authentication state
       navigate("/panel");
