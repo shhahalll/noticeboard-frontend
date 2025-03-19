@@ -21,7 +21,7 @@ const AdminPanel = ({ setAuth }) => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/notices/");
+        const response = await axios.get("http://api.nihalez.in/api/notices/");
         setNotices(response.data);
         setLoading(false);
       } catch (error) {
@@ -50,7 +50,7 @@ const AdminPanel = ({ setAuth }) => {
   // Toggle visibility of a notice
   const toggleVisibility = async (noticeId) => {
     try {
-      await axios.post(`http://127.0.0.1:8000/api/notices/${noticeId}/toggle-visibility/`);
+      await axios.post(`http://api.nihalez.in/api/notices/${noticeId}/toggle-visibility/`);
       // Update the notices list after toggling visibility
       setNotices((prevNotices) =>
         prevNotices.map((notice) =>
@@ -65,7 +65,7 @@ const AdminPanel = ({ setAuth }) => {
   // Delete a notice
   const deleteNotice = async (noticeId) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/notices/${noticeId}/`);
+      await axios.delete(`http://api.nihalez.in/api/notices/${noticeId}/`);
       // Remove the deleted notice from the list
       setNotices((prevNotices) => prevNotices.filter((notice) => notice.id !== noticeId));
     } catch (error) {
