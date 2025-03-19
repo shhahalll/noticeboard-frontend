@@ -14,7 +14,7 @@ const AddNotice = ({ setShowAddNotice }) => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get("https://api.shahal.online/api/notices/");
+        const response = await axios.get("http://127.0.0.1:8000/api/notices/");
         setExistingNotices(response.data);
       } catch (error) {
         console.error("Error fetching notices:", error);
@@ -43,7 +43,7 @@ const AddNotice = ({ setShowAddNotice }) => {
     }
 
     try {
-      const response = await axios.post("https://api.shahal.online/api/notices/", formData, {
+      const response = await axios.post("http://127.0.0.1:8000/api/notices/", formData, {
         headers: {
           "Content-Type": "multipart/form-data", // Ensure the proper content type for file upload
         },

@@ -9,7 +9,7 @@ const NoticeBoard = () => {
   useEffect(() => {
     const fetchNotices = async () => {
       try {
-        const response = await axios.get("https://api.shahal.online/api/notices/");
+        const response = await axios.get("http://127.0.0.1:8000/api/notices/");
         const visibleNotices = response.data.filter((notice) => notice.visible);
 
         // Only update if new data is different
@@ -61,6 +61,7 @@ const NoticeBoard = () => {
           )
         )}
       </div>
+      <footer className="notice-footer">Major project by Nihal and Team</footer>
     </div>
   );
 };
@@ -69,6 +70,7 @@ export default NoticeBoard;
 
 /* CSS */
 const styles = `
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
   * {
     margin: 0;
     padding: 0;
@@ -78,7 +80,7 @@ const styles = `
   .notice-container {
     width: 100vw;
     height: 100vh;
-    background: #003366;
+    background: rgb(255, 253, 253);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,16 +88,17 @@ const styles = `
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
+    flex-direction: column;
   }
 
   .notice-card {
     width: 90%;
     max-width: 900px;
     background: white;
-    color: #003366;
+    color: rgb(0, 0, 0);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(112, 112, 112, 0.2);
   }
 
   .notice-title {
@@ -118,6 +121,14 @@ const styles = `
 
   video {
     max-height: 500px;
+  }
+
+  .notice-footer {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
   }
 `;
 
